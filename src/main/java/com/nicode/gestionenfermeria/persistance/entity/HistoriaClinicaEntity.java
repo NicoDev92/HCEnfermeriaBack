@@ -36,6 +36,9 @@ public class HistoriaClinicaEntity {
     @Column(length = 250)
     private String historialFamiliar;
 
+    @Column(length = 250)
+    private String observaciones;
+
     @Column(name = "ultima_modificacion", columnDefinition = "DATETIME")
     private LocalDateTime ultimaModificacion;
 

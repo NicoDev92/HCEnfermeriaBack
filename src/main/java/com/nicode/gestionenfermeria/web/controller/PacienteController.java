@@ -1,16 +1,15 @@
 package com.nicode.gestionenfermeria.web.controller;
 
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
+import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
+import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/api/pacientes")
@@ -25,14 +24,14 @@ public class PacienteController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Page<PacienteEntity>> getAll(@RequestParam(defaultValue = "0") int page,
-                                                       @RequestParam(defaultValue = "10") int elements) {
+    public ResponseEntity<Page<PacienteReducedSumary>> getAll(@RequestParam(defaultValue = "0") int page,
+                                                              @RequestParam(defaultValue = "10") int elements) {
 
         return ResponseEntity.ok(this.pacienteService.getAll(page, elements));
     }
 
     @GetMapping("/findBy/{param}")
-    public ResponseEntity<Page<PacienteEntity>> getByQuery(@PathVariable String param,
+    public ResponseEntity<Page<PacienteEntity>> getBy(@PathVariable String param,
                                                            @RequestParam(defaultValue = "0") int page,
                                                            @RequestParam(defaultValue = "10") int elements) {
         Page<PacienteEntity> pacientes = pacienteService.getBy(param, page, elements);
@@ -40,7 +39,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<PacienteEntity>> getById(@PathVariable int id) {
+    public ResponseEntity<Optional<PacienteSummary>> getById(@PathVariable int id) {
         return ResponseEntity.ok(pacienteService.getById(id));
     }
 

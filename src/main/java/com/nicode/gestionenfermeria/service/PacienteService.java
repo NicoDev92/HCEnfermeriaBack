@@ -1,6 +1,8 @@
 package com.nicode.gestionenfermeria.service;
 
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
+import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
+import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.persistance.repository.PacientePageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,9 @@ public class PacienteService {
         this.pacientePageSortRepository = pacientePageSortRepository;
     }
 
-    public Page<PacienteEntity> getAll(int page, int elements) {
+    public Page<PacienteReducedSumary> getAll(int page, int elements) {
         Pageable pageRequest  = PageRequest.of(page, elements);
-        return this.pacientePageSortRepository.findAll(pageRequest);
+        return this.pacientePageSortRepository.getReducedInfo(pageRequest);
     }
 
     public Page<PacienteEntity> getBy(String param, int page, int elements){
@@ -35,8 +37,8 @@ public class PacienteService {
                 .findAllByNombreContainingOrApellidoContainingOrDniContainingOrServicioContaining(param, param, param, param, pageRequest);
     }
 
-    public Optional<PacienteEntity> getById(int id) {
-        return Optional.of(this.pacienteRepository.findById(id)).orElse(null);
+    public Optional<PacienteSummary> getById(int id) {
+        return Optional.of(this.pacienteRepository.getSumaryById(id)).orElse(null);
     }
 
     public boolean exists(PacienteEntity paciente){

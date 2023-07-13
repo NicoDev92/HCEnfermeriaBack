@@ -2,6 +2,7 @@ package com.nicode.gestionenfermeria.web.controller;
 
 
 import com.nicode.gestionenfermeria.persistance.entity.EnfermeroEntity;
+import com.nicode.gestionenfermeria.persistance.projection.EnfermeroReducedSummary;
 import com.nicode.gestionenfermeria.service.EnfermeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,10 +24,10 @@ public class EnfermeroController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Page<EnfermeroEntity>> getAll(@RequestParam(defaultValue = "0") int page,
-                                                        @RequestParam(defaultValue = "10") int elements){
+    public ResponseEntity<Page<EnfermeroReducedSummary>> getAll(@RequestParam(defaultValue = "0") int page,
+                                                                @RequestParam(defaultValue = "10") int elements){
 
-        Page<EnfermeroEntity> enfermeros = this.enfermeroService.getAll(page, elements);
+        Page<EnfermeroReducedSummary> enfermeros = this.enfermeroService.getAll(page, elements);
 
         return ResponseEntity.ok(enfermeros);
     }

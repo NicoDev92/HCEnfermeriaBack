@@ -2,6 +2,7 @@ package com.nicode.gestionenfermeria.service;
 
 
 import com.nicode.gestionenfermeria.persistance.entity.EnfermeroEntity;
+import com.nicode.gestionenfermeria.persistance.projection.EnfermeroReducedSummary;
 import com.nicode.gestionenfermeria.persistance.repository.EnfermeroPageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.EnfermeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,11 @@ public class EnfermeroService {
         this.enfermeroPageSortRepository = enfermeroPageSortRepository;
     }
 
-    public Page<EnfermeroEntity> getAll(int page, int elements) {
+    public Page<EnfermeroReducedSummary> getAll(int page, int elements){
 
         Pageable pageRequest = PageRequest.of(page, elements);
 
-        return this.enfermeroPageSortRepository.findAll(pageRequest);
+        return this.enfermeroPageSortRepository.getReducedInfo(pageRequest);
     }
 
     public Page<EnfermeroEntity> getBy(String keyword, int page, int elements) {
