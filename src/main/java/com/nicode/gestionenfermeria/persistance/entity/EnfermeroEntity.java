@@ -14,7 +14,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties("hibernateLazyInitializer")
 public class EnfermeroEntity extends PersonaEntity{
 
     @Column(length = 10, nullable = false, unique = true)

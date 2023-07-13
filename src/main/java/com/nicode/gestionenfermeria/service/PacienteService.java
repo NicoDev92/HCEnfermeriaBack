@@ -1,8 +1,12 @@
 package com.nicode.gestionenfermeria.service;
 
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
+import com.nicode.gestionenfermeria.persistance.repository.PacientePageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,18 +16,23 @@ import java.util.Optional;
 public class PacienteService {
 
     private final PacienteRepository pacienteRepository;
+    private final PacientePageSortRepository pacientePageSortRepository;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository) {
+    public PacienteService(PacienteRepository pacienteRepository, PacientePageSortRepository pacientePageSortRepository) {
         this.pacienteRepository = pacienteRepository;
+        this.pacientePageSortRepository = pacientePageSortRepository;
     }
 
-    public List<PacienteEntity> getAll(){
-        return this.pacienteRepository.findAll();
+    public Page<PacienteEntity> getAll(int page, int elements) {
+        Pageable pageRequest  = PageRequest.of(page, elements);
+        return this.pacientePageSortRepository.findAll(pageRequest);
     }
 
-    public List<PacienteEntity> getBy(String keyword) {
-            return this.pacienteRepository.getAllBy(keyword);
+    public Page<PacienteEntity> getBy(String param, int page, int elements){
+        Pageable pageRequest  = PageRequest.of(page, elements);
+        return this.pacientePageSortRepository
+                .findAllByNombreContainingOrApellidoContainingOrDniContainingOrServicioContaining(param, param, param, param, pageRequest);
     }
 
     public Optional<PacienteEntity> getById(int id) {

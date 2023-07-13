@@ -3,6 +3,7 @@ package com.nicode.gestionenfermeria.web.controller;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
-@RequestMapping("/api/paciente")
+@RequestMapping("/api/pacientes")
 public class PacienteController {
 
     private final PacienteService pacienteService;
@@ -24,14 +25,17 @@ public class PacienteController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PacienteEntity>> getAll() {
-        List<PacienteEntity> pacientes = pacienteService.getAll();
-        return ResponseEntity.ok(pacientes);
+    public ResponseEntity<Page<PacienteEntity>> getAll(@RequestParam(defaultValue = "0") int page,
+                                                       @RequestParam(defaultValue = "10") int elements) {
+
+        return ResponseEntity.ok(this.pacienteService.getAll(page, elements));
     }
 
     @GetMapping("/findBy/{param}")
-    public ResponseEntity<List<PacienteEntity>> getByParam(@PathVariable String param) {
-        List<PacienteEntity> pacientes = pacienteService.getBy(param);
+    public ResponseEntity<Page<PacienteEntity>> getByQuery(@PathVariable String param,
+                                                           @RequestParam(defaultValue = "0") int page,
+                                                           @RequestParam(defaultValue = "10") int elements) {
+        Page<PacienteEntity> pacientes = pacienteService.getBy(param, page, elements);
         return ResponseEntity.ok(pacientes);
     }
 

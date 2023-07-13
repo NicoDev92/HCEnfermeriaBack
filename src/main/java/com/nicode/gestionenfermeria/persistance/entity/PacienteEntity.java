@@ -12,7 +12,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties("hibernateLazyInitializer")
 public class PacienteEntity extends PersonaEntity{
 
     @Column(nullable = true, length = 10)
@@ -24,8 +23,7 @@ public class PacienteEntity extends PersonaEntity{
     @Column(nullable = true, length = 35)
     private String servicio;
 
-    @JsonIgnore
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_historia_clinica", referencedColumnName = "id", insertable = false, updatable = false)
     private HistoriaClinicaEntity historiaClinica;
 

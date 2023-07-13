@@ -7,13 +7,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PacienteRepository extends ListCrudRepository<PacienteEntity, Integer> {
 
-    @Query("SELECT p FROM PacienteEntity p WHERE p.nombre LIKE %:keyword%"
-            + " OR p.apellido LIKE %:keyword%"
-            + " OR p.dni LIKE %:keyword%"
-            + " OR p.servicio LIKE %:keyword%")
-    List<PacienteEntity> getAllBy(@Param("keyword") String keyword);
 }
