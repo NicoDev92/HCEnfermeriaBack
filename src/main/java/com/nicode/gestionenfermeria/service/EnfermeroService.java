@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class EnfermeroService {
         this.enfermeroPageSortRepository = enfermeroPageSortRepository;
     }
 
+    @Secured("ROLE_ADMIN")
     public Page<EnfermeroReducedSummary> getAll(int page, int elements){
 
         Pageable pageRequest = PageRequest.of(page, elements);
@@ -33,6 +35,7 @@ public class EnfermeroService {
         return this.enfermeroPageSortRepository.getReducedInfo(pageRequest);
     }
 
+    @Secured("ROLE_ADMIN")
     public Page<EnfermeroEntity> getBy(String keyword, int page, int elements) {
 
         Pageable pageRequest = PageRequest.of(page, elements);
@@ -40,10 +43,12 @@ public class EnfermeroService {
         return this.enfermeroPageSortRepository.findAllByNombreContainingOrApellidoContainingOrMatriculaContaining(keyword, keyword, keyword, pageRequest);
     }
 
+    @Secured("ROLE_ADMIN")
     public Optional<EnfermeroEntity> getById(int id){
         return Optional.ofNullable(this.enfermeroRepository.findById(id).orElse(null));
     }
 
+    @Secured("ROLE_ADMIN")
     public EnfermeroEntity save(EnfermeroEntity enfermeroEntity){
         return this.enfermeroRepository.save(enfermeroEntity);
     }
@@ -62,6 +67,7 @@ public class EnfermeroService {
 
     }
 
+    @Secured("ROLE_ADMIN")
     public void delete(int id){
         this.enfermeroRepository.deleteById(id);
     }

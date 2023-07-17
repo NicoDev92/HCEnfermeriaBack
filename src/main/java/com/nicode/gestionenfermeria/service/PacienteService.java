@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,10 +56,12 @@ public class PacienteService {
         return isRegistered;
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_CUSTOM"})
     public PacienteEntity save(PacienteEntity pacienteEntity){
         return this.pacienteRepository.save(pacienteEntity);
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_CUSTOM"})
     public void delete(int id) {
         this.pacienteRepository.deleteById(id);
     }

@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
@@ -39,7 +41,12 @@ public class HistoriaClinicaEntity {
     @Column(length = 250)
     private String observaciones;
 
-    @Column(name = "ultima_modificacion", columnDefinition = "DATETIME")
+    @Column(name = "creado_el")
+    @CreatedDate
+    private LocalDateTime creadoEl;
+
+    @Column(name = "ultima_modificacion")
+    @LastModifiedDate
     private LocalDateTime ultimaModificacion;
 
     @JsonIgnore

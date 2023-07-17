@@ -47,7 +47,7 @@ public class EnfermeroController {
         return ResponseEntity.ok(this.enfermeroService.getById(id));
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<EnfermeroEntity> add(@RequestBody EnfermeroEntity enfermeroEntity){
         if(!this.enfermeroService.exists(enfermeroEntity)){
             return ResponseEntity.ok(this.enfermeroService.save(enfermeroEntity));
@@ -56,7 +56,7 @@ public class EnfermeroController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PutMapping
+    @PutMapping("/update/{id}")
     public ResponseEntity<EnfermeroEntity> update(@RequestBody EnfermeroEntity enfermeroEntity){
         if(this.enfermeroService.exists(enfermeroEntity)){
             return ResponseEntity.ok(this.enfermeroService.save(enfermeroEntity));
