@@ -29,13 +29,4 @@ public class EnfermeroEntity extends PersonaEntity{
 
     @Column(length = 15)
     private String estado;
-
-    @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "enfermero_servicio",
-            joinColumns = @JoinColumn(name = "enfermero_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "servicio_id", referencedColumnName = "id"))
-    private List<ServicioEntity> servicios;
-
 }
