@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/api/enfermeros")
+@CrossOrigin(origins = "*")
 public class EnfermeroController {
     private final EnfermeroService enfermeroService;
 
