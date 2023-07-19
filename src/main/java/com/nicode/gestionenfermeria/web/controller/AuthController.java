@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -28,7 +31,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<Map<String, String>> login(@RequestBody LoginDto loginDto){
         UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(loginDto.getUsername(),
                                                                                             loginDto.getPassword());
 
@@ -39,6 +42,10 @@ public class AuthController {
 
         String jwt = this.jwtUtils.create(loginDto.getUsername());
 
-        return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build();
+        Map<String, String> response = new HashMap<>();
+        response.put("token", jwt);
+
+
+        return ResponseEntity.ok().body(response);
     }
 }
