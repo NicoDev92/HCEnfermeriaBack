@@ -61,6 +61,8 @@ public class PacienteService {
         return this.pacienteRepository.save(pacienteEntity);
     }
 
+
+
     @Secured({"ROLE_ADMIN", "ROLE_CUSTOM"})
     public void delete(int id) {
         this.pacienteRepository.deleteById(id);

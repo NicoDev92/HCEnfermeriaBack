@@ -20,7 +20,7 @@ public class JwtUtils {
                 .withSubject(username)
                 .withIssuer("nicode")
                 .withIssuedAt(new Date())
-                .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(2)))
+                .withExpiresAt(new Date(System.currentTimeMillis() + TimeUnit.HOURS.toMillis(2)))
                 .sign(ALGORITHM);
     }
 

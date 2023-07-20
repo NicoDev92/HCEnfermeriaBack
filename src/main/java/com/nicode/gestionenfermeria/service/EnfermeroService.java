@@ -27,7 +27,7 @@ public class EnfermeroService {
         this.enfermeroPageSortRepository = enfermeroPageSortRepository;
     }
 
-    @Secured("ROLE_ADMIN")
+
     public Page<EnfermeroReducedSummary> getAll(int page, int elements){
 
         Pageable pageRequest = PageRequest.of(page, elements);
@@ -35,7 +35,7 @@ public class EnfermeroService {
         return this.enfermeroPageSortRepository.getReducedInfo(pageRequest);
     }
 
-    @Secured("ROLE_ADMIN")
+
     public Page<EnfermeroEntity> getBy(String keyword, int page, int elements) {
 
         Pageable pageRequest = PageRequest.of(page, elements);
@@ -43,7 +43,7 @@ public class EnfermeroService {
         return this.enfermeroPageSortRepository.findAllByNombreContainingOrApellidoContainingOrMatriculaContaining(keyword, keyword, keyword, pageRequest);
     }
 
-    @Secured("ROLE_ADMIN")
+
     public Optional<EnfermeroEntity> getById(int id){
         return Optional.ofNullable(this.enfermeroRepository.findById(id).orElse(null));
     }
