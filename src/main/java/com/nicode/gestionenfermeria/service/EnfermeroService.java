@@ -40,7 +40,7 @@ public class EnfermeroService {
 
         Pageable pageRequest = PageRequest.of(page, elements);
 
-        return this.enfermeroPageSortRepository.findAllByNombreContainingOrApellidoContainingOrMatriculaContaining(keyword, keyword, keyword, pageRequest);
+        return this.enfermeroPageSortRepository.findAllByNombreContainingOrDniContainingOrApellidoContainingOrMatriculaContaining(keyword, keyword, keyword, keyword, pageRequest);
     }
 
 

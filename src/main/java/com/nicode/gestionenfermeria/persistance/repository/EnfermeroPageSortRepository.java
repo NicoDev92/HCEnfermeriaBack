@@ -8,9 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface EnfermeroPageSortRepository extends PagingAndSortingRepository<EnfermeroEntity, Integer> {
-    Page<EnfermeroEntity> findAllByNombreContainingOrApellidoContainingOrMatriculaContaining(String keyword,
+    Page<EnfermeroEntity> findAllByNombreContainingOrDniContainingOrApellidoContainingOrMatriculaContaining(String keyword,
                                                                                              String keyword2,
                                                                                              String keyword3,
+                                                                                             String keyword4,
                                                                                              Pageable page);
     @Query(value = "SELECT id, nombre, apellido, dni, matricula FROM enfermero", nativeQuery = true)
     Page<EnfermeroReducedSummary> getReducedInfo(Pageable page);

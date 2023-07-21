@@ -1,5 +1,6 @@
 package com.nicode.gestionenfermeria.web.controller;
 
+import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
@@ -44,7 +45,7 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.getById(id));
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<PacienteEntity> add(@RequestBody PacienteEntity pacienteEntity) {
 
         if(!this.pacienteService.exists(pacienteEntity)) {
@@ -55,11 +56,12 @@ public class PacienteController {
 
     }
 
-    @PutMapping
-    public ResponseEntity<PacienteEntity> update(@RequestBody PacienteEntity pacienteEntity) {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Void> update(@RequestBody PacienteEntity pacienteEntity, @RequestBody HistoriaClinicaEntity hc) {
 
         if(this.pacienteService.exists(pacienteEntity)){
-            return ResponseEntity.ok(this.pacienteService.save(pacienteEntity));
+            this.pacienteService.update(pacienteEntity, hc);
+            return ResponseEntity.ok().build();
         }
 
         return ResponseEntity.badRequest().build();

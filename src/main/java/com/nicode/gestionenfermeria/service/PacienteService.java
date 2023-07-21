@@ -1,8 +1,10 @@
 package com.nicode.gestionenfermeria.service;
 
+import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
+import com.nicode.gestionenfermeria.persistance.repository.HistoriaClinicaRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacientePageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,11 +23,13 @@ public class PacienteService {
 
     private final PacienteRepository pacienteRepository;
     private final PacientePageSortRepository pacientePageSortRepository;
+    private final HistoriaClinicaRepository historiaClinicaRepository;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository, PacientePageSortRepository pacientePageSortRepository) {
+    public PacienteService(PacienteRepository pacienteRepository, PacientePageSortRepository pacientePageSortRepository, HistoriaClinicaRepository historiaClinicaRepository) {
         this.pacienteRepository = pacienteRepository;
         this.pacientePageSortRepository = pacientePageSortRepository;
+        this.historiaClinicaRepository = historiaClinicaRepository;
     }
 
     public Page<PacienteReducedSumary> getAll(int page, int elements) {
@@ -61,8 +66,11 @@ public class PacienteService {
         return this.pacienteRepository.save(pacienteEntity);
     }
 
-
-
+    @Transactional
+    public void update(PacienteEntity paciente, HistoriaClinicaEntity hc) {
+        this.pacienteRepository.save(paciente);
+        this.historiaClinicaRepository.save(hc);
+    }
     @Secured({"ROLE_ADMIN", "ROLE_CUSTOM"})
     public void delete(int id) {
         this.pacienteRepository.deleteById(id);
