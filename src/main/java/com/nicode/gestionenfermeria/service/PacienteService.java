@@ -7,6 +7,7 @@ import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.persistance.repository.HistoriaClinicaRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacientePageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacienteRepository;
+import com.nicode.gestionenfermeria.service.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -67,7 +68,9 @@ public class PacienteService {
     }
 
     @Transactional
-    public void update(PacienteEntity paciente, HistoriaClinicaEntity hc) {
+    public void update(UpdatePacienteDto pacienteDTO) {
+        PacienteEntity paciente = pacienteDTO.getPaciente();
+        HistoriaClinicaEntity hc = pacienteDTO.getHc();
         this.pacienteRepository.save(paciente);
         this.historiaClinicaRepository.save(hc);
     }

@@ -5,6 +5,7 @@ import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.service.PacienteService;
+import com.nicode.gestionenfermeria.service.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -57,10 +58,9 @@ public class PacienteController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Void> update(@RequestBody PacienteEntity pacienteEntity, @RequestBody HistoriaClinicaEntity hc) {
-
-        if(this.pacienteService.exists(pacienteEntity)){
-            this.pacienteService.update(pacienteEntity, hc);
+    public ResponseEntity<Void> update(@RequestBody UpdatePacienteDto pacienteDTO) {
+        if (this.pacienteService.exists(pacienteDTO.getPaciente())) {
+            this.pacienteService.update(pacienteDTO);
             return ResponseEntity.ok().build();
         }
 
