@@ -68,6 +68,12 @@ public class PacienteService {
     }
 
     @Transactional
+    public void update(PacienteEntity paciente, HistoriaClinicaEntity hc) {
+        this.pacienteRepository.save(paciente);
+        this.historiaClinicaRepository.save(hc);
+    }
+
+    @Transactional
     public void update(UpdatePacienteDto pacienteDTO) {
         PacienteEntity paciente = pacienteDTO.getPaciente();
         HistoriaClinicaEntity hc = pacienteDTO.getHc();

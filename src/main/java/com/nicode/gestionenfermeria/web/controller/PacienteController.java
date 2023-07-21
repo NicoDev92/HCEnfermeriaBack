@@ -58,14 +58,18 @@ public class PacienteController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Void> update(@RequestBody UpdatePacienteDto pacienteDTO) {
-        if (this.pacienteService.exists(pacienteDTO.getPaciente())) {
-            this.pacienteService.update(pacienteDTO);
+    public ResponseEntity<Void> update(@RequestBody UpdatePacienteDto updatePacienteDto) {
+        PacienteEntity pacienteEntity = updatePacienteDto.getPaciente();
+        HistoriaClinicaEntity hc = updatePacienteDto.getHc();
+
+        if (this.pacienteService.exists(pacienteEntity)) {
+            this.pacienteService.update(pacienteEntity, hc);
             return ResponseEntity.ok().build();
         }
 
         return ResponseEntity.badRequest().build();
     }
+
 
     @DeleteMapping("/del/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id) {
