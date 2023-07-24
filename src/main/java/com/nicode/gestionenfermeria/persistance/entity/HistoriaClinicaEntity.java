@@ -1,5 +1,6 @@
 package com.nicode.gestionenfermeria.persistance.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -51,5 +52,6 @@ public class HistoriaClinicaEntity {
 
     @OneToOne
     @JoinColumn(name = "id_paciente", referencedColumnName = "id", insertable = false, updatable = false)
+    @JsonBackReference
     private PacienteEntity paciente;
 }

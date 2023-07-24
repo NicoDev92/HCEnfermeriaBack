@@ -1,5 +1,6 @@
 package com.nicode.gestionenfermeria.persistance.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class PacienteEntity extends PersonaEntity{
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_historia_clinica", referencedColumnName = "id", insertable = false, updatable = false)
+    @JsonManagedReference
     private HistoriaClinicaEntity historiaClinica;
 
 }
