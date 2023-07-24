@@ -7,6 +7,7 @@ import com.nicode.gestionenfermeria.service.HistoriaClinicaService;
 import com.nicode.gestionenfermeria.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -53,12 +54,15 @@ public class HistoriaClinicaController {
     }
 
     @PostMapping("/save/{id}")
-    public ResponseEntity<PacienteEntity> add(@RequestBody HistoriaClinicaEntity historiaClinicaEntity,@PathVariable int idPaciente){
-        Optional<PacienteEntity> pacienteOptional = this.pacienteService.getById(idPaciente);
-        PacienteEntity paciente = pacienteOptional.orElse(null);
-        paciente.setHistoriaClinica(historiaClinicaEntity);
+    public ResponseEntity<HistoriaClinicaEntity> add(@RequestBody HistoriaClinicaEntity historiaClinicaEntity,@PathVariable("id") int idPaciente){
+        PacienteEntity paciente = this.pacienteService.getById(idPaciente).orElse(null);
 
-        return ResponseEntity.ok(this.pacienteService.save(paciente));
+        if(paciente == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        
+        historiaClinicaEntity.setPaciente(paciente);
+        return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
     }
 
     @PutMapping("/update/{idHc}")

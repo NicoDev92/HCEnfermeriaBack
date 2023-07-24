@@ -24,8 +24,7 @@ public class PacienteEntity extends PersonaEntity{
     @Column(nullable = true, length = 35)
     private String servicio;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_historia_clinica", referencedColumnName = "id", insertable = false, updatable = false)
+    @OneToOne(mappedBy = "paciente",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference
     private HistoriaClinicaEntity historiaClinica;
 
