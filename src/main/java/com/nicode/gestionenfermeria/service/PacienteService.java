@@ -73,13 +73,6 @@ public class PacienteService {
         this.historiaClinicaRepository.save(hc);
     }
 
-    @Transactional
-    public void update(UpdatePacienteDto pacienteDTO) {
-        PacienteEntity paciente = pacienteDTO.getPaciente();
-        HistoriaClinicaEntity hc = pacienteDTO.getHc();
-        this.pacienteRepository.save(paciente);
-        this.historiaClinicaRepository.save(hc);
-    }
     @Secured({"ROLE_ADMIN", "ROLE_CUSTOM"})
     public void delete(int id) {
         this.pacienteRepository.deleteById(id);

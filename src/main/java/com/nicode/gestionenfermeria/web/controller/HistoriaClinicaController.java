@@ -50,12 +50,12 @@ public class HistoriaClinicaController {
         return ResponseEntity.ok(this.hcService.getById(id));
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<HistoriaClinicaEntity> add(@RequestBody HistoriaClinicaEntity historiaClinicaEntity){
         return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
     }
 
-    @PutMapping
+    @PutMapping("/update/{idHc}")
     public ResponseEntity<HistoriaClinicaEntity> update(@RequestBody HistoriaClinicaEntity historiaClinicaEntity){
         return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
     }
