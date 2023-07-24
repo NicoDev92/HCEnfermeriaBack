@@ -4,10 +4,10 @@ package com.nicode.gestionenfermeria.web.controller;
 import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.service.HistoriaClinicaService;
+import com.nicode.gestionenfermeria.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +20,12 @@ import java.util.Optional;
 public class HistoriaClinicaController {
 
     private final HistoriaClinicaService hcService;
+    private final PacienteService pacienteService;
 
     @Autowired
-    public HistoriaClinicaController(HistoriaClinicaService hcService) {
+    public HistoriaClinicaController(HistoriaClinicaService hcService, PacienteService pacienteService) {
         this.hcService = hcService;
+        this.pacienteService = pacienteService;
     }
 
 
@@ -50,9 +52,13 @@ public class HistoriaClinicaController {
         return ResponseEntity.ok(this.hcService.getById(id));
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<HistoriaClinicaEntity> add(@RequestBody HistoriaClinicaEntity historiaClinicaEntity){
-        return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
+    @PostMapping("/save/{id}")
+    public ResponseEntity<PacienteEntity> add(@RequestBody HistoriaClinicaEntity historiaClinicaEntity,@PathVariable int idPaciente){
+        Optional<PacienteEntity> pacienteOptional = this.pacienteService.getById(idPaciente);
+        PacienteEntity paciente = pacienteOptional.orElse(null);
+        paciente.setHistoriaClinica(historiaClinicaEntity);
+
+        return ResponseEntity.ok(this.pacienteService.save(paciente));
     }
 
     @PutMapping("/update/{idHc}")
