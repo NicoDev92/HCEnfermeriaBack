@@ -1,5 +1,7 @@
 package com.nicode.gestionenfermeria.persistance.projection;
 
+
+
 import jakarta.annotation.Nullable;
 
 import java.time.LocalDate;
@@ -38,6 +40,6 @@ public interface PacienteSummary {
     String getHistorialFamiliar();
     @Nullable
     String getObservaciones();
-    @Nullable 
+    @Nullable
     String getUltimaModificacion();
 }

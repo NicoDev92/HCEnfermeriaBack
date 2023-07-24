@@ -7,9 +7,9 @@
     <list default="true" id="f04b1665-e1fd-4fc6-8a23-517e48a6f06c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/persistance/projection/PacienteSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/persistance/projection/PacienteSummary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/persistance/repository/PacienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/persistance/repository/PacienteRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/service/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/service/PacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/service/dto/UpdatePacienteDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/service/dto/UpdatePacienteDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/web/controller/HistoriaClinicaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/web/controller/HistoriaClinicaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/web/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nicode/gestionenfermeria/web/controller/PacienteController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

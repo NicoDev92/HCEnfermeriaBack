@@ -44,8 +44,8 @@ public class PacienteService {
                 .findAllByNombreContainingOrApellidoContainingOrDniContainingOrServicioContaining(param, param, param, param, pageRequest);
     }
 
-    public Optional<PacienteSummary> getById(int id) {
-        return Optional.of(this.pacienteRepository.getSumaryById(id)).orElse(null);
+    public PacienteSummary getById(int id) {
+        return this.pacienteRepository.getSumaryById(id);
     }
 
     public boolean exists(PacienteEntity paciente){

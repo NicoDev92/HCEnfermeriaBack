@@ -7,8 +7,6 @@ import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface PacienteRepository extends ListCrudRepository<PacienteEntity, Integer> {
 
@@ -20,5 +18,5 @@ public interface PacienteRepository extends ListCrudRepository<PacienteEntity, I
                             + " hc.observaciones AS observaciones, hc.ultima_modificacion AS ultimaModificacion"
                     + " FROM paciente pa INNER JOIN historia_clinica hc ON pa.id = hc.id_paciente"
                     + " WHERE pa.id=:id", nativeQuery = true)
-    Optional<PacienteSummary> getSumaryById(@Param("id") int id);
+    PacienteSummary getSumaryById(@Param("id") int id);
 }
