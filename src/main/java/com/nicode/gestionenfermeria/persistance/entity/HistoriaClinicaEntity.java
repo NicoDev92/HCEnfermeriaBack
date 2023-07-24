@@ -49,7 +49,6 @@ public class HistoriaClinicaEntity {
     @LastModifiedDate
     private LocalDateTime ultimaModificacion;
 
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "id_paciente", referencedColumnName = "id", insertable = false, updatable = false)
     private PacienteEntity paciente;
