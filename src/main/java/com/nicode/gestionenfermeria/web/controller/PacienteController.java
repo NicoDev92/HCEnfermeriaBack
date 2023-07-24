@@ -3,7 +3,6 @@ package com.nicode.gestionenfermeria.web.controller;
 import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
-import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.service.PacienteService;
 import com.nicode.gestionenfermeria.service.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PacienteSummary> getById(@PathVariable int id) {
+    public ResponseEntity<Optional<PacienteEntity>> getById(@PathVariable int id) {
         return ResponseEntity.ok(pacienteService.getById(id));
     }
 

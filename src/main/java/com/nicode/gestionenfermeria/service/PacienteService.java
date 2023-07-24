@@ -3,11 +3,9 @@ package com.nicode.gestionenfermeria.service;
 import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
-import com.nicode.gestionenfermeria.persistance.projection.PacienteSummary;
 import com.nicode.gestionenfermeria.persistance.repository.HistoriaClinicaRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacientePageSortRepository;
 import com.nicode.gestionenfermeria.persistance.repository.PacienteRepository;
-import com.nicode.gestionenfermeria.service.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -44,8 +42,8 @@ public class PacienteService {
                 .findAllByNombreContainingOrApellidoContainingOrDniContainingOrServicioContaining(param, param, param, param, pageRequest);
     }
 
-    public PacienteSummary getById(int id) {
-        return this.pacienteRepository.getSumaryById(id);
+    public Optional<PacienteEntity> getById(int id) {
+        return this.pacienteRepository.findById(id);
     }
 
     public boolean exists(PacienteEntity paciente){
