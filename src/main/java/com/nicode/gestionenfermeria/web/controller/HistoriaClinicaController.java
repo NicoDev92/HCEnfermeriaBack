@@ -65,9 +65,18 @@ public class HistoriaClinicaController {
         return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
     }
 
-    @PutMapping("/update/{idHc}")
-    public ResponseEntity<HistoriaClinicaEntity> update(@RequestBody HistoriaClinicaEntity historiaClinicaEntity){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<HistoriaClinicaEntity> update(@RequestBody HistoriaClinicaEntity historiaClinicaEntity, @PathVariable ("id") int id){
+
+        PacienteEntity paciente = this.pacienteService.getById(id).orElse(null);
+
+        if(paciente == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        historiaClinicaEntity.setPaciente(paciente);
         return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
+
     }
 
     @DeleteMapping("/del/{id}")
