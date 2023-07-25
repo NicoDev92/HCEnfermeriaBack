@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -25,6 +27,7 @@ public class PacienteEntity extends PersonaEntity{
     private String servicio;
 
     @OneToOne(mappedBy = "paciente",cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonManagedReference
     private HistoriaClinicaEntity historiaClinica;
 
