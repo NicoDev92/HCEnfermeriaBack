@@ -50,7 +50,7 @@ public class HistoriaClinicaEntity {
     @LastModifiedDate
     private LocalDateTime ultimaModificacion;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_paciente")
     @JsonBackReference
     private PacienteEntity paciente;
