@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-24T21:58:51" hostname="DESKTOP-IKHOH5T" time="0.997">
+<testsuite name="com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-25T00:17:12" hostname="DESKTOP-IKHOH5T" time="0.59">
   <properties/>
-  <testcase name="contextLoads()" classname="com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests" time="0.997"/>
-  <system-out><![CDATA[18:58:26.568 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests]: GestionEnfermeriaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:58:26.715 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.nicode.gestionenfermeria.GestionEnfermeriaApplication for test class com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests
+  <testcase name="contextLoads()" classname="com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests" time="0.59"/>
+  <system-out><![CDATA[21:16:49.654 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests]: GestionEnfermeriaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:16:49.776 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.nicode.gestionenfermeria.GestionEnfermeriaApplication for test class com.nicode.gestionenfermeria.GestionEnfermeriaApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,21 +13,21 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.1)
 
-2023-07-24T18:58:27.258-03:00  INFO 18732 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : Starting GestionEnfermeriaApplicationTests using Java 18.0.2.1 with PID 18732 (started by Nico in C:\Users\Nico\Desktop\java\gestion-enfermeria)
-2023-07-24T18:58:27.261-03:00  INFO 18732 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2023-07-24T18:58:28.016-03:00  INFO 18732 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-07-24T18:58:28.155-03:00  INFO 18732 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
-2023-07-24T18:58:29.407-03:00  INFO 18732 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-07-24T18:58:29.475-03:00  INFO 18732 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
-2023-07-24T18:58:29.478-03:00  INFO 18732 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-07-24T18:58:29.700-03:00  INFO 18732 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-24T18:58:29.964-03:00  INFO 18732 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-07-24T18:58:30.057-03:00  INFO 18732 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-24T18:58:34.133-03:00  INFO 18732 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d825dbe
-2023-07-24T18:58:34.139-03:00  INFO 18732 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-24T18:58:34.998-03:00  WARN 18732 --- [    Test worker] o.h.b.model.internal.AnnotationBinder    : HHH000503: A class should not be annotated with both @Inheritance and @MappedSuperclass. @Inheritance will be ignored for: com.nicode.gestionenfermeria.persistance.entity.PersonaEntity.
-2023-07-24T18:58:35.287-03:00  INFO 18732 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-07-24T18:58:36.170-03:00  INFO 18732 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-24T21:16:50.242-03:00  INFO 10628 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : Starting GestionEnfermeriaApplicationTests using Java 18.0.2.1 with PID 10628 (started by Nico in C:\Users\Nico\Desktop\java\gestion-enfermeria)
+2023-07-24T21:16:50.244-03:00  INFO 10628 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2023-07-24T21:16:50.883-03:00  INFO 10628 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-24T21:16:50.960-03:00  INFO 10628 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
+2023-07-24T21:16:51.826-03:00  INFO 10628 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-24T21:16:51.887-03:00  INFO 10628 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.5.Final
+2023-07-24T21:16:51.889-03:00  INFO 10628 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-24T21:16:52.076-03:00  INFO 10628 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-24T21:16:52.253-03:00  INFO 10628 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-24T21:16:52.277-03:00  INFO 10628 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-24T21:16:56.161-03:00  INFO 10628 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@605eb072
+2023-07-24T21:16:56.168-03:00  INFO 10628 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-24T21:16:57.431-03:00  WARN 10628 --- [    Test worker] o.h.b.model.internal.AnnotationBinder    : HHH000503: A class should not be annotated with both @Inheritance and @MappedSuperclass. @Inheritance will be ignored for: com.nicode.gestionenfermeria.persistance.entity.PersonaEntity.
+2023-07-24T21:16:57.705-03:00  INFO 10628 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-24T21:16:58.603-03:00  INFO 10628 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 Hibernate: alter table enfermero modify column creado_el  datetime(6)
 Hibernate: alter table enfermero modify column fecha_de_nacimiento  date
 Hibernate: alter table enfermero modify column ultima_modificacion  DATETIME
@@ -39,11 +39,11 @@ Hibernate: alter table paciente modify column creado_el  datetime(6)
 Hibernate: alter table paciente modify column fecha_de_nacimiento  date
 Hibernate: alter table paciente modify column ultima_modificacion  DATETIME
 Hibernate: alter table rol_usuarios modify column fecha_creacion  DATETIME not null
-2023-07-24T18:58:46.528-03:00  INFO 18732 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-07-24T18:58:47.401-03:00  INFO 18732 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-07-24T18:58:49.610-03:00  WARN 18732 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-07-24T18:58:50.511-03:00  INFO 18732 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26350832, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d1cdebf, org.springframework.security.web.context.SecurityContextHolderFilter@794fbf0d, org.springframework.security.web.header.HeaderWriterFilter@208bde64, org.springframework.web.filter.CorsFilter@25b7ccfc, org.springframework.security.web.authentication.logout.LogoutFilter@42ae0fcf, com.nicode.gestionenfermeria.web.config.JwtFilter@3e0eb917, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12bb3666, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18c2b4c6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56ed6e17, org.springframework.security.web.session.SessionManagementFilter@24a38ef3, org.springframework.security.web.access.ExceptionTranslationFilter@2a0c76d6, org.springframework.security.web.access.intercept.AuthorizationFilter@2d17b6ad]
-2023-07-24T18:58:51.442-03:00  INFO 18732 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : Started GestionEnfermeriaApplicationTests in 24.466 seconds (process running for 26.0)
+2023-07-24T21:17:10.693-03:00  INFO 10628 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-24T21:17:11.007-03:00  INFO 10628 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-07-24T21:17:11.776-03:00  WARN 10628 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-24T21:17:12.177-03:00  INFO 10628 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@347c7b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@126f428e, org.springframework.security.web.context.SecurityContextHolderFilter@2eb95662, org.springframework.security.web.header.HeaderWriterFilter@339b9869, org.springframework.web.filter.CorsFilter@201a84e1, org.springframework.security.web.authentication.logout.LogoutFilter@62a193e0, com.nicode.gestionenfermeria.web.config.JwtFilter@3e1f6318, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31efe094, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d69fd7a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@414a3c7d, org.springframework.security.web.session.SessionManagementFilter@58477355, org.springframework.security.web.access.ExceptionTranslationFilter@4c627575, org.springframework.security.web.access.intercept.AuthorizationFilter@41a372c1]
+2023-07-24T21:17:12.578-03:00  INFO 10628 --- [    Test worker] c.n.g.GestionEnfermeriaApplicationTests  : Started GestionEnfermeriaApplicationTests in 22.613 seconds (process running for 23.981)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

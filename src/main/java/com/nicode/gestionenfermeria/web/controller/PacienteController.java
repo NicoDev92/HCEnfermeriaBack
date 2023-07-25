@@ -1,10 +1,8 @@
 package com.nicode.gestionenfermeria.web.controller;
 
-import com.nicode.gestionenfermeria.persistance.entity.HistoriaClinicaEntity;
 import com.nicode.gestionenfermeria.persistance.entity.PacienteEntity;
 import com.nicode.gestionenfermeria.persistance.projection.PacienteReducedSumary;
 import com.nicode.gestionenfermeria.service.PacienteService;
-import com.nicode.gestionenfermeria.service.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -57,15 +55,12 @@ public class PacienteController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Void> update(@RequestBody UpdatePacienteDto updatePacienteDto) {
-        PacienteEntity pacienteEntity = updatePacienteDto.getPaciente();
-        HistoriaClinicaEntity hc = updatePacienteDto.getHc();
+    public ResponseEntity<PacienteEntity> update(@RequestBody PacienteEntity pacienteEntity) {
+
 
         if (this.pacienteService.exists(pacienteEntity)) {
-            this.pacienteService.update(pacienteEntity, hc);
-            return ResponseEntity.ok().build();
+            return  ResponseEntity.ok(this.pacienteService.save(pacienteEntity));
         }
-
         return ResponseEntity.badRequest().build();
     }
 

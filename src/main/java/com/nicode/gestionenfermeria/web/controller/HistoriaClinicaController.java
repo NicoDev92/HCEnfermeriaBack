@@ -60,7 +60,7 @@ public class HistoriaClinicaController {
         if(paciente == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        
+
         historiaClinicaEntity.setPaciente(paciente);
         return ResponseEntity.ok(this.hcService.save(historiaClinicaEntity));
     }
