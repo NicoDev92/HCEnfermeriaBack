@@ -32,7 +32,7 @@ public class HistoriaClinicaEntity {
     @Column(columnDefinition = "Decimal(3,2)")
     private Float altura;
 
-    @Column(columnDefinition = "Decimal(4,2)")
+    @Column(columnDefinition = "Decimal(5,2)")
     private Float peso;
 
     @Column(name = "grupo_sanguineo", length = 10)

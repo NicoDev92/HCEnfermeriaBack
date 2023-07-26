@@ -26,7 +26,7 @@ public class PacienteEntity extends PersonaEntity{
     @Column(nullable = true, length = 35)
     private String servicio;
 
-    @OneToOne(mappedBy = "paciente",cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToOne(mappedBy = "paciente", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonManagedReference
     private HistoriaClinicaEntity historiaClinica;
